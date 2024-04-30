@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>looplicht</title>
+  <!-- Bootstrap CSS & JS -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/custom.css">
+  <script src="./scripts/bootstrap.bundle.min.js"></script>
+  
+</head>
+<body>
+<header>
+     <nav class="navbar navbar-custom fixed-top navbar-expand-sm justify-content-center">    
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./diensten.html">Diensten</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./demo.html">Demo-modus</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./kitt-scanner.html">KITT-scanner</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./kleuren.html">Kies je eigen kleuren</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./morse.html">Morse generator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./willekeurig.html">Willekeurig</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      
+</header>
+
+<div class="container mt-5">
+  
+  <h1 class="text-center"> <br> 2 kleuren looplicht</h1>
+
+</div>
+<!-- Blok met andere achtergrondkleur -->
+
+<div class="container py-5 custom-width bg-secondary">
+  <div class="row">
+    <div class="col-md-4  text-center">
+      <p> <figure>
+        <img src="./media/looplicht.jpg" alt="looplicht" style="width: 90%;" class="img-fluid"><figcaption>Over looplichten valt eigenlijk niets te vertellen. 
+          Gelukkig zijn er genoeg andere dingen waar we het over kunnen hebben.</figcaption></figure>
+    
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p>
+         Voor ons lichtsnoer hebben we gebruik gemaakt van de 
+        <a href="https://www.shelly.com/en-be/products/shop/shelly-duo-rgbw">shelly duo rgbw</a> ledlamp.
+        Dit is een wifi gestuurde lamp met tal van mogelijkheden, ze kan aangestuurd worden:
+        <ul class="list-group">
+          <li class="list-group-item">via een app</li>
+          <li class="list-group-item">met MQTT</li>
+          <li class="list-group-item">vanuit de cloud</li>
+          <li class="list-group-item">rechtstreeks met een API</li>          
+        </ul> 
+        
+      </p>
+    </div>
+    <div class="col-md-4">      
+      <p>Uiteraard is er in dit project voor de API gekozen. De belangrijkste reden waarom ik voor shelly heb gekozen is 
+        uiteindelijk niet de hardware op zich.<br>Ik heb vooral voor Shelly gekozen omdat hun producten erg goed gedocumenteerd zijn. 
+        Op <a href="https://shelly-api-docs.shelly.cloud/">https://shelly-api-docs.shelly.cloud/</a> is een 
+        massa informatie te vinden over shelly toestellen die zo goed uitgewerkt is dat ik er alle vertrouwen in heb 
+        dat ook een volslagen beginner als ik er mee aan de slag kan.       
+        </p>
+    </div>
+  </div>
+</div>
+<!-- 2e deel--> 
+
+<footer>
+
+  <div class="container py-5 custom-width bg-secondary">
+    <div class="row">
+      <div class="col-md-2  text-center">
+        <p> <img id="image" src="" alt="Hackerspace status"> </p>
+      </div>
+      <div class="col-md-8">
+        <p>
+          <h4 id="status"></h4>          
+          We gebruiken hier <a href="https://spaceapi.io/">spaceapi</a>,
+          een API die ook door <a href="https://we.voidwarranties.be/">Voidwarranties</a> gebruikt wordt, 
+          om te laten zien of Voidwarranties al dan niet open is op dit moment.
+        </p>
+        <div class="col-md-2  text-center">
+          
+        </div>
+      </div>
+
+
+
+<script src="./scripts/spacestate.js"></script>
+          
+</footer>
+
+</body>
+</html>
+

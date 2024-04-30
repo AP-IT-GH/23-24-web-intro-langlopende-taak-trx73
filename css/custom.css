@@ -1,0 +1,104 @@
+
+
+  /* Importeer de Bootstrap CSS */
+@import "bootstrap.min.css";
+
+/* Pas de achtergrondkleur van de body aan */
+body {
+  background-color: black;
+  color: #03db1d; 
+}
+
+.bg-secondary {
+
+  background-color: #0e0e0e !important;
+
+}
+
+.bg-secondary a {
+  color: #03db1d;
+}
+
+/* Stijl voor de secundaire knoppen */
+.btn-secondary {
+  background-color: #03db1d; 
+  color: #361ab4; 
+  border-color: #00ff00; 
+}
+
+.accordion-button {
+  background-color: black; 
+  color: #03db1d; 
+  border-color: #03db1d; 
+}
+
+  .accordion {
+    padding: 0;
+    
+  }
+
+  .accordion-header::before{
+    color: #03db1d; 
+  }
+
+  .accordion-button:after {   
+    background-image: url("../media/pijltje.svg") !important;  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #0e0e0e;
+    color: #03db1d;
+  }
+  .accordion-item {
+    background-color: black;
+    color: #03db1d;
+  }
+
+  button.accordion-button:focus{
+    box-shadow: none;
+    outline: none; 
+}
+
+#interval_kitt {
+  width: 100px; /* Pas de breedte aan naar de gewenste grootte */
+}
+
+
+.navbar-custom {
+  background-color: black;
+}
+
+.navbar-custom .nav-link {
+  color: #03db1d;
+}
+
+.card {
+  background-color: #0e0e0e; 
+  color: #03db1d; 
+}
+
+
+.link {
+  color: #03db1d;  
+}
+
+.custom-width {
+  max-width: 80%;
+  margin: 0 auto; 
+}
+
+
+.list-group-item {
+  background-color: black;
+}
+
+.list-group-item {
+  color: #03db1d; 
+}
+
+.list-group-item {
+  border-color: #0e0e0e; 
+}
+
+figcaption {
+  font-size: 12px;
+}
