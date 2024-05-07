@@ -102,3 +102,11 @@ body {
 figcaption {
   font-size: 12px;
 }
+
+
+
+.table-dark {
+  --bs-table-color: #03db1d;
+  --bs-table-striped-color: #03db1d;
+}
+

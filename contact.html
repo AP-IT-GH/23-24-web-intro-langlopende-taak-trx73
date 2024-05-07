@@ -7,8 +7,12 @@
   <!-- Bootstrap CSS & JS -->
   <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="./css/normalize.css">
-  <link rel="stylesheet" href="./css/custom.css">
+  <link rel="stylesheet" href="./css/custom.css">  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="./scripts/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <style>
 		html, body {
@@ -67,57 +71,36 @@
 
 <div class="container py-5 custom-width bg-secondary">
   <div class="row">
-    <div class="col-md-8  text-center">
+    <div class="col-md-6 text-center">
 
      
 <div id="map" style="width: 600px; height: 400px;"></div>
 <script>
 
-	const map = L.map('map').setView([51.505, -0.09], 13);
+	const map = L.map('map').setView([51.208683, 4.453435], 15);
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-	const marker = L.marker([51.5, -0.09]).addTo(map)
-		.bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
-
-	const circle = L.circle([51.508, -0.11], {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5,
-		radius: 500
-	}).addTo(map).bindPopup('I am a circle.');
-
-	const polygon = L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).addTo(map).bindPopup('I am a polygon.');
-
-
-	const popup = L.popup()
-		.setLatLng([51.513, -0.09])
-		.setContent('I am a standalone popup.')
-		.openOn(map);
-
-	function onMapClick(e) {
-		popup
-			.setLatLng(e.latlng)
-			.setContent(`You clicked the map at ${e.latlng.toString()}`)
-			.openOn(map);
-	}
-
-	map.on('click', onMapClick);
+  var marker = L.marker([51.208683, 4.453435]).addTo(map);
+  marker.bindPopup("<b>Voidwarranties</b><br>Herrystraat 22 <br> 2100 Deurne").openPopup();
+	
 
 </script> 
       
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
+      <figure class="text-center">
+        <img src="./media/void.png" alt="Voidwarranties" style="width: 80%;" class="img-fluid"><figcaption>          
+      </figure>   
       <p>
-        toekomstige tekst bij leaflet
+        Ontdek de bruisende gemeenschap van technologieliefhebbers bij hackerspace Voidwarranties!
+        Wij verwelkomen iedereen die wil experimenteren en leren. Word lid en laat je passie voor 
+        technologie tot leven komen in een omgeving vol innovatie en samenwerking.
       </p>
+      <h2 class="text-center"><a href="https://we.voidwarranties.be/">we.voidwarranties.be</a></h2>
     </div>    
   </div>
 </div>
