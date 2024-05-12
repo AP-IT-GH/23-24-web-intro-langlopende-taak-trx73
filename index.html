@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/custom.css">
   <script src="./scripts/bootstrap.bundle.min.js"></script>
-  <script src="./scripts/actieve_animatie.js"></script>
+  <script src="./scripts/controller.js"> defer</script>
+  
 
   <!--niet alle instellingen van de navbar laten zich niet veranderen in style.css, 
     door te inspecteren in de browser kwam ik te weten dat ze in bootstrap.css
@@ -55,7 +56,7 @@
 
   <div class="d-flex justify-content-center flex-nowrap">
     <!-- Element om de actieve animatie weer te geven -->
-    <h2>Actieve animatie: <span id="active-animation"></span></h2>
+      <h2><span id="active-message"></span></h2>
   </div>
 
 <!-- start accordion -->
@@ -65,7 +66,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-       <!-- 1 -->
+       <!-- 1) DEMO-modus-->
       <div class="accordion" id="accordion1">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -76,13 +77,13 @@
           <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordion1">
             <div class="accordion-body">              
               De DEMO-modus heeft geen instellingen, hij loopt gewoon door alle andere animaties heen, en laat ze elk gedurende 1 minuut zien.
-              <br><br><button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('DEMO-modus')">Activeer deze animatie</button>
+              <br><br><button type="submit" class="btn btn-primary mb-2" onclick="Demo()">Activeer deze animatie</button>
                           
             </div>
           </div>
         </div>
 
-        <!-- 2 -->
+        <!-- 2) KITT-scanner-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
@@ -95,17 +96,18 @@
 
               <form class="d-flex align-items-center">
                 <label for="interval_kitt" class="me-2">Interval:</label>
-                <input type="number" id="interval_kitt" class="form-control me-2" aria-describedby="interval_kitt" min="0.4" max="1.5" step="0.1" required>
+                <input type="number" id="interval_kitt" class="form-control me-2"
+                 aria-describedby="interval_kitt" min="0.4" max="1.5" step="0.1" required>
                 <span class="me-2">seconde(n)</span>
               </form>        <br>       
                   
-                    <button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('KITT-scanner')">Activeer deze animatie</button>
+                    <button type="submit" class="btn btn-primary mb-2" onclick="kittscanner()">Activeer deze animatie</button>
                
             </div>
           </div>
         </div>
 
-        <!-- 3 -->
+        <!-- 3)  2 kleuren looplicht-->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
@@ -115,14 +117,17 @@
           <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion1">
             <div class="accordion-body">
               Zowel de kleuren als het tempo kunnen worden aangepast. <br> <br>
-              Kleur 0: <input value="3399FF" data-jscolor="{}"><br>
-              Kleur 1: <input value="3399FF" data-jscolor="{}"><br> <br>
+              Kleur 0: <input id="looplicht_kleur0" value="3399FF" data-jscolor="{}"><br>
+              Kleur 1: <input id="looplicht_kleur1" value="3399FF" data-jscolor="{}"><br> <br>
+
               <form class="d-flex align-items-center">
                 <label for="interval_looplicht" class="me-2">Interval:</label>
-                <input type="number" id="interval_kitt" class="form-control me-2" aria-describedby="interval_looplicht" min="0.4" max="1.5" step="0.1" required>
+                <input type="number" id="interval_looplicht" class="form-control me-2"
+                 aria-describedby="interval_looplicht" min="0.4" max="1.5" step="0.1" required>
                 <span class="me-2">seconde(n)</span>
-              </form>        <br>       
-              <button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('2 kleuren looplicht')">Activeer deze animatie</button>
+              </form>        <br>     
+                  
+              <button type="submit" class="btn btn-primary mb-2" onclick="looplicht()">Activeer deze animatie</button>
 
             </div>
           </div>
@@ -132,7 +137,7 @@
 
      <!-- Hier komt het rechterdeel met 3 inklapbare delen -->
      <div class="col-md-6">
-      <!-- 4-->
+      <!-- 4) kies je eigen kleur -->
       <div class="accordion" id="accordion2">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -144,24 +149,25 @@
             <div class="accordion-body">
               <p>
                 Kies voor iedere lamp je eigen kleur<br><br>
-                Lamp  0: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  1: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  2: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  3: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  4: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  5: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  6: <input value="3399FF" data-jscolor="{}"><br>
+                Lamp  0: <input id="eigen_kleur0" value="3399FF" data-jscolor="{}"><br>
+                Lamp  1: <input id="eigen_kleur1" value="3399FF" data-jscolor="{}"><br>
+                Lamp  2: <input id="eigen_kleur2" value="3399FF" data-jscolor="{}"><br>
+                Lamp  3: <input id="eigen_kleur3" value="3399FF" data-jscolor="{}"><br>
+                Lamp  4: <input id="eigen_kleur4" value="3399FF" data-jscolor="{}"><br>
+                Lamp  5: <input id="eigen_kleur5" value="3399FF" data-jscolor="{}"><br>
+             <!--   Lamp  6: <input value="3399FF" data-jscolor="{}"><br>
                 Lamp  7: <input value="3399FF" data-jscolor="{}"><br>
                 Lamp  8: <input value="3399FF" data-jscolor="{}"><br>
-                Lamp  9: <input value="3399FF" data-jscolor="{}"><br> <br>
+                Lamp  9: <input value="3399FF" data-jscolor="{}"><br> --><br>
 
-                <button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('Kies je eigen kleuren')">Activeer deze animatie</button>
+                <button type="submit" class="btn btn-primary mb-2" 
+                onclick="eigenkleuren()">Activeer deze animatie</button>
              </p>
             </div>
           </div>
         </div>
 
-        <!-- 5 -->
+        <!-- 5) morse generator -->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
@@ -174,13 +180,13 @@
                   Tik hier een korte boodschap in en onze morse generator geeft ze weer. <br>   
                     <label class="sr-only" for="inlineFormInput"></label>
                     <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jouw tekst">
-                    <button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('Morse generator')">Activeer deze animatie</button>                
+                    <button type="submit" class="btn btn-primary mb-2" onclick="startMorse()">Activeer deze animatie</button>                
               </p>
             </div>
           </div>
         </div>
 
-        <!-- 6 -->
+        <!-- 6) willekeurig -->
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
@@ -190,8 +196,8 @@
           <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordion2">
             <div class="accordion-body">
               Deze animatie kiest willekeurig lampen uit en geeft ze een willekeurige kleur. <br> <br>
-              <button type="submit" class="btn btn-primary mb-2" onclick="updateActiveAnimation('Willekeurig')">Activeer deze animatie</button>
-              
+              <button type="submit" class="btn btn-primary mb-2"
+               onclick="willekeurig()">Activeer deze animatie</button>                          
             </div>
           </div>
         </div>
